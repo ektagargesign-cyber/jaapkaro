@@ -1,0 +1,163 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Jaap Karo — Devotional design system. All colors in HSL. */
+
+@layer base {
+  :root {
+    /* Deep devotional darks */
+    --background: 0 43% 9%;            /* #220909 */
+    --background-deep: 0 13% 5%;       /* #0C0909 */
+    --foreground: 36 38% 92%;          /* warm off-white */
+
+    --card: 0 35% 11%;
+    --card-foreground: 36 38% 92%;
+
+    --popover: 0 35% 8%;
+    --popover-foreground: 36 38% 92%;
+
+    /* Saffron primary */
+    --primary: 28 95% 49%;             /* #F58A07 */
+    --primary-foreground: 0 43% 7%;
+
+    /* Gold accent */
+    --accent: 43 65% 52%;              /* #D4AF37 */
+    --accent-foreground: 0 43% 7%;
+
+    --secondary: 0 30% 14%;
+    --secondary-foreground: 36 30% 88%;
+
+    --muted: 0 20% 14%;
+    --muted-foreground: 36 18% 70%;
+
+    --destructive: 0 70% 45%;
+    --destructive-foreground: 36 38% 95%;
+
+    --border: 36 25% 22% / 0.35;
+    --input: 0 25% 18%;
+    --ring: 43 65% 52%;
+
+    --radius: 1rem;
+
+    /* Devotional tokens */
+    --saffron: 28 95% 49%;
+    --saffron-glow: 28 95% 60%;
+    --gold: 43 65% 52%;
+    --maroon: 0 43% 9%;
+    --maroon-deep: 0 13% 5%;
+
+    --gradient-warmth: radial-gradient(ellipse at top, hsl(28 95% 49% / 0.18), transparent 60%);
+    --gradient-diya: radial-gradient(circle at 50% 40%, hsl(43 80% 55% / 0.35), hsl(28 95% 49% / 0.12) 35%, transparent 70%);
+    --gradient-temple: linear-gradient(180deg, hsl(0 43% 9%), hsl(0 13% 5%));
+
+    --shadow-glow: 0 0 60px -10px hsl(28 95% 49% / 0.35), 0 0 120px -30px hsl(43 65% 52% / 0.25);
+    --shadow-bead: 0 10px 40px -10px hsl(0 0% 0% / 0.6), inset 0 1px 0 hsl(43 65% 52% / 0.2);
+    --shadow-soft: 0 20px 60px -20px hsl(0 0% 0% / 0.5);
+
+    --transition-sacred: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+  * { @apply border-border; }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% -10%, hsl(28 95% 49% / 0.12), transparent 60%),
+      radial-gradient(ellipse 60% 40% at 100% 100%, hsl(43 65% 52% / 0.08), transparent 60%),
+      linear-gradient(180deg, hsl(var(--background)), hsl(var(--background-deep)));
+    background-attachment: fixed;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Cormorant Garamond', 'Tiro Devanagari Hindi', serif;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+
+  .font-devanagari { font-family: 'Tiro Devanagari Hindi', 'Cormorant Garamond', serif; }
+  .font-serif-display { font-family: 'Cormorant Garamond', serif; }
+}
+
+@layer components {
+  .container-sacred { @apply mx-auto w-full max-w-6xl px-5 sm:px-8; }
+
+  .text-gold-gradient {
+    background: linear-gradient(135deg, hsl(43 75% 65%), hsl(28 95% 60%) 50%, hsl(43 75% 55%));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .glow-saffron { box-shadow: var(--shadow-glow); }
+
+  .divider-temple {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, hsl(43 65% 52% / 0.6), transparent);
+    position: relative;
+  }
+  .divider-temple::before {
+    content: "❖";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: hsl(var(--background));
+    color: hsl(var(--accent));
+    padding: 0 1rem;
+    font-size: 0.875rem;
+  }
+
+  .btn-sacred {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-7 py-4 font-medium tracking-wide transition-all;
+    background: linear-gradient(135deg, hsl(28 95% 52%), hsl(28 95% 42%));
+    color: hsl(0 43% 7%);
+    box-shadow: 0 10px 40px -10px hsl(28 95% 49% / 0.55), inset 0 1px 0 hsl(43 90% 75% / 0.5);
+  }
+  .btn-sacred:hover { transform: translateY(-2px); box-shadow: 0 20px 60px -10px hsl(28 95% 49% / 0.7), inset 0 1px 0 hsl(43 90% 75% / 0.6); }
+
+  .btn-ghost-gold {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 font-medium tracking-wide transition-all;
+    border: 1px solid hsl(43 65% 52% / 0.4);
+    color: hsl(36 38% 92%);
+  }
+  .btn-ghost-gold:hover { border-color: hsl(43 65% 52% / 0.9); background: hsl(43 65% 52% / 0.08); }
+
+  .card-sacred {
+    @apply rounded-2xl p-6 sm:p-8 transition-all;
+    background: linear-gradient(180deg, hsl(0 35% 12% / 0.7), hsl(0 35% 9% / 0.4));
+    border: 1px solid hsl(43 65% 52% / 0.15);
+    backdrop-filter: blur(8px);
+    box-shadow: var(--shadow-soft);
+  }
+  .card-sacred:hover { border-color: hsl(43 65% 52% / 0.4); transform: translateY(-3px); }
+
+  .bead {
+    width: 8px; height: 8px; border-radius: 9999px;
+    background: radial-gradient(circle at 30% 30%, hsl(28 60% 50%), hsl(0 50% 18%));
+    box-shadow: 0 0 4px hsl(28 95% 49% / 0.4);
+  }
+}
+
+@layer utilities {
+  @keyframes flame {
+    0%, 100% { transform: translateY(0) scale(1); opacity: 0.9; }
+    50% { transform: translateY(-2px) scale(1.04); opacity: 1; }
+  }
+  .animate-flame { animation: flame 3s ease-in-out infinite; }
+
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-up { animation: fade-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 30px hsl(28 95% 49% / 0.3); }
+    50% { box-shadow: 0 0 60px hsl(28 95% 49% / 0.55); }
+  }
+  .animate-pulse-glow { animation: pulse-glow 4s ease-in-out infinite; }
+}
