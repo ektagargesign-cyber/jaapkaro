@@ -9,8 +9,8 @@ export default function PrivacyPage({ onBack }: PrivacyPageProps) {
   const [htmlContent, setHtmlContent] = useState<string>('<p style="text-align:center; opacity:0.6; padding: 40px;">Loading Privacy Policy...</p>');
 
   useEffect(() => {
-    // Scrapes the blog post content directly to render natively
-    fetch('https://bhaktiwithekta.blogspot.com/2026/02/privacy-policy.html')
+    // Uses an open CORS proxy to safely fetch the live content from your blog post without domain blocks
+    fetch('https://corsproxy.io/?' + encodeURIComponent('https://bhaktiwithekta.blogspot.com/2026/02/privacy-policy.html'))
       .then((response) => response.text())
       .then((htmlString) => {
         const parser = new DOMParser();
@@ -50,8 +50,12 @@ export default function PrivacyPage({ onBack }: PrivacyPageProps) {
         {/* 1. Back to Vercel App Button */}
         <button 
           onClick={onBack}
-          className="btn-ghost-gold text-sm"
-          style={{ padding: '8px 16px' }}
+          className="text-accent/90 hover:text-accent border rounded-full font-sans text-xs uppercase tracking-wider cursor-pointer transition-all bg-transparent"
+          style={{ 
+            padding: '10px 20px',
+            borderColor: 'hsl(43 65% 52% / 0.4)',
+            boxShadow: '0 0 15px -3px hsl(28 95% 49% / 0.2)'
+          }}
         >
           ← Back to App Page
         </button>
