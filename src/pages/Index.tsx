@@ -7,14 +7,14 @@ import diyaGlow from "@/assets/app-icon.png";
 import malaShot from "@/assets/screenshots/Mala_Completion_celebration.png";
 import goalShot from "@/assets/screenshots/Goal_completed_green_ring.png";
 import settingsShot from "@/assets/screenshots/Settings.png";
-import screen1 from "@/assets/screenshots/1__Main_screen_1080x2400.png";
-import screen2 from "@/assets/screenshots/2__Counting_screen_1080x2400.png";
-import screen3 from "@/assets/screenshots/3__Completion_celebration_1080x2400.png";
-import screen4 from "@/assets/screenshots/4__Goal_completed_green_ring_1080x2400.png";
-import screen5 from "@/assets/screenshots/5__Settings_1080x2400.png";
-import screen6 from "@/assets/screenshots/6__About_1080x2400.png";
-import screen7 from "@/assets/screenshots/7__Set_beads_1080x2400.png";
-import screen8 from "@/assets/screenshots/8__Jaap_History_1080x2400.png";
+import screen1 from "@/assets/screenshots/1. Main screen_1080x2400.png";
+import screen2 from "@/assets/screenshots/2. Counting screen_1080x2400.png";
+import screen3 from "@/assets/screenshots/3. Completion celebration_1080x2400.png";
+import screen4 from "@/assets/screenshots/4. Goal completed green ring_1080x2400.png";
+import screen5 from "@/assets/screenshots/5. Settings_1080x2400.png";
+import screen6 from "@/assets/screenshots/6. About_1080x2400.png";
+import screen7 from "@/assets/screenshots/7. Set beads_1080x2400.png";
+import screen8 from "@/assets/screenshots/8. Jaap History_1080x2400.png";
 
 const PLAY_URL = "https://play.google.com/store/apps/details?id=com.bhaktiwithekta.jaapkaro";
 
