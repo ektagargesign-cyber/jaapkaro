@@ -8,18 +8,6 @@ import malaShot from "@/assets/screenshots/Mala_Completion_celebration.png";
 import goalShot from "@/assets/screenshots/Goal_completed_green_ring.png";
 import settingsShot from "@/assets/screenshots/Settings.png";
 
-<meta name="google-site-verification" content="HG2mEsVOa1wNsv2gfoehwirajEOuDdTB9yugR9ZP-9s" />
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-GLJ2SR3BEM"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-GLJ2SR3BEM');
-</script>
-
 const PLAY_URL = "https://play.google.com/store/apps/details?id=com.bhaktiwithekta.jaapkaro";
 
 /* Stylized devotional phone mockup (no external screenshots needed) */
