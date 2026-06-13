@@ -9,34 +9,46 @@ export default function PrivacyPage({ onBack }: PrivacyPageProps) {
   const [htmlContent, setHtmlContent] = useState<string>('<p style="text-align:center; opacity:0.6; padding: 40px;">Loading Privacy Policy...</p>');
 
   useEffect(() => {
-    // Dynamically fetches the live HTML content through an open JSON conversion proxy
-    fetch(`https://api.allorigins.win/get?url=${encodeURIComponent('https://bhaktiwithekta.blogspot.com/p/jaap-karo-privacy-policy-bhaktiwithekta.html')}`)
+    // Fetches the raw XML feed of your precise page to bypass CORS blocks and eliminate sidebars
+    fetch('https://bhaktiwithekta.blogspot.com/feeds/pages/default')
       .then((response) => {
-        if (!response.ok) throw new Error('Network response error.');
-        return response.json();
+        if (!response.ok) throw new Error('Network error');
+        return response.text();
       })
-      .then((data) => {
+      .then((xmlString) => {
         const parser = new DOMParser();
-        const doc = parser.parseFromString(data.contents, 'text/html');
+        const xmlDoc = parser.parseFromString(xmlString, 'text/xml');
         
-        // Pinpoints the precise inner content area inside Blogger templates where your text sits
-        const postBody = doc.querySelector('.post-body') || doc.querySelector('[id^="post-body-"]') || doc.querySelector('.entry-content');
-        
-        if (postBody) {
-          // Instantly strips away any specific elements or widgets embedded by the editor inside the text frame
-          const logo = postBody.querySelector('.app-logo');
-          const installBtn = postBody.querySelector('.install-btn-wrap');
-          const copyright = postBody.querySelector('.copyright');
-          const shareButtons = postBody.querySelectorAll('.post-share-buttons, .share-links');
+        // Scan the feed entries to find the one matching your unique page URL identifier
+        const entries = Array.from(xmlDoc.querySelectorAll('entry'));
+        const privacyEntry = entries.find(entry => {
+          const links = Array.from(entry.querySelectorAll('link'));
+          return links.some(link => {
+            const href = link.getAttribute('href') || '';
+            return link.getAttribute('rel') === 'alternate' && href.includes('jaap-karo-privacy-policy');
+          });
+        });
+
+        // Extract just the raw body text content string inside the matched entry
+        const contentTag = privacyEntry?.querySelector('content');
+        if (contentTag) {
+          const rawHtmlContent = contentTag.textContent || '';
+          
+          // Clean out any application-specific layout items embedded inside the text editor framework
+          const htmlParser = new DOMParser();
+          const doc = htmlParser.parseFromString(rawHtmlContent, 'text/html');
+          
+          const logo = doc.querySelector('.app-logo');
+          const installBtn = doc.querySelector('.install-btn-wrap');
+          const copyright = doc.querySelector('.copyright');
           
           if (logo) logo.remove();
           if (installBtn) installBtn.remove();
           if (copyright) copyright.remove();
-          shareButtons.forEach(btn => btn.remove());
 
-          setHtmlContent(postBody.innerHTML);
+          setHtmlContent(doc.body.innerHTML);
         } else {
-          setHtmlContent('<p style="text-align:center; opacity:0.7;">Unable to isolate content layout structure.</p>');
+          setHtmlContent('<p style="text-align:center; opacity:0.7;">Privacy Policy text content could not be isolated from the feed.</p>');
         }
       })
       .catch((err) => {
