@@ -9,12 +9,18 @@ export default function PrivacyPage({ onBack }: PrivacyPageProps) {
   const [htmlContent, setHtmlContent] = useState<string>('<p style="text-align:center; opacity:0.6; padding: 40px;">Loading Privacy Policy...</p>');
 
   useEffect(() => {
-    // Uses an open CORS proxy to safely fetch the live content from your blog post without domain blocks
-    fetch('https://corsproxy.io/?' + encodeURIComponent('https://bhaktiwithekta.blogspot.com/2026/02/privacy-policy.html'))
-      .then((response) => response.text())
-      .then((htmlString) => {
+    // Uses AllOrigins open-source proxy to bypass the CORS block safely on production URLs
+    fetch(`https://api.allorigins.win/get?url=${encodeURIComponent('https://bhaktiwithekta.blogspot.com/2026/02/privacy-policy.html')}`)
+      .then((response) => {
+        if (response.ok) return response.json();
+        throw new Error('Network response was not ok.');
+      })
+      .then((data) => {
+        // AllOrigins wraps the raw text inside a data.contents string
+        const htmlString = data.contents;
         const parser = new DOMParser();
         const doc = parser.parseFromString(htmlString, 'text/html');
+        
         // Targets the main Blogspot post container safely
         const postBody = doc.querySelector('.post-body') || doc.querySelector('.entry-content') || doc.body;
         
