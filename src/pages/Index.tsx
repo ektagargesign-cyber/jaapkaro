@@ -626,7 +626,6 @@ const Index = () => {
               <span>Contact: <a href="mailto:bhaktiwithekta@gmail.com" className="text-accent/80 hover:text-accent">bhaktiwithekta@gmail.com</a></span>
               <span>·</span>
               
-            // Inside your index.tsx or your Footer component
             <a href="https://bhaktiwithekta.blogspot.com/p/jaap-karo-privacy-policy-bhaktiwithekta.html" target="_blank" rel="noopener noreferrer" className="text-sm underline text-foreground/50 hover:text-accent">Privacy Policy</a>
             </p>
             
