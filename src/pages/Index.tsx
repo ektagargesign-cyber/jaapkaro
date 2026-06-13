@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import PrivacyPage from "./PrivacyPage";
 import appIcon from "@/assets/app-icon.png";
 import mandalaBg from "@/assets/mandala-bg.jpg";
 import diyaGlow from "@/assets/app-icon.png";
@@ -235,6 +236,14 @@ const Index = () => {
       acceptedAnswer: { "@type": "Answer", text: f.a },
     })),
   };
+
+
+  const [showPrivacy, setShowPrivacy] = useState(false);
+
+  // Toggles visual views immediately, safely handling everything above your return layout block
+  if (showPrivacy) {
+    return <PrivacyPage onBack={() => setShowPrivacy(false)} />;
+  }
 
   return (
     <>
@@ -619,9 +628,12 @@ const Index = () => {
               <img src={appIcon} alt="" width={28} height={28} className="rounded-md" />
               <span className="font-serif text-base text-foreground/80">Jaap Karo</span>
             </div>
-            <p>
-              Contact: <a href="mailto:bhaktiwithekta@gmail.com" className="text-accent/80 hover:text-accent">bhaktiwithekta@gmail.com</a>
-            </p>
+            <p className="flex items-center gap-2 flex-wrap justify-center">
+              <span>Contact: <a href="mailto:bhaktiwithekta@gmail.com" className="text-accent/80 hover:text-accent">bhaktiwithekta@gmail.com</a></span>
+              <span>·</span>
+              <button onClick={() => setShowPrivacy(true)} className="text-accent/80 hover:text-accent underline cursor-pointer bg-transparent border-none p-0 outline-none text-xs">
+Privacy Policy</button>
+</p>
             <p className="mt-2 max-w-md font-devanagari text-foreground/55">
               "सर्वे भवन्तु सुखिनः, सर्वे सन्तु निरामयाः।"
             </p>
