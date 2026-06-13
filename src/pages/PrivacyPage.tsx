@@ -9,20 +9,18 @@ export default function PrivacyPage({ onBack }: PrivacyPageProps) {
   const [htmlContent, setHtmlContent] = useState<string>('<p style="text-align:center; opacity:0.6; padding: 40px;">Loading Privacy Policy...</p>');
 
   useEffect(() => {
-    // Fetches Google's open RSS feed layout for standalone pages to bypass deprecation blocks
-    fetch('https://bhaktiwithekta.blogspot.com/feeds/pages/default')
+    // Fetches from your internal project server route to bypass browser blocks natively
+    fetch('/api/get-privacy')
       .then((response) => {
-        if (!response.ok) throw new Error('Network response was not ok.');
+        if (!response.ok) throw new Error('Server connection error');
         return response.text();
       })
-      .then((str) => {
+      .then((xmlString) => {
         const parser = new DOMParser();
-        const xmlDoc = parser.parseFromString(str, 'text/xml');
+        const xmlDoc = parser.parseFromString(xmlString, 'text/xml');
         
-        // Find all standalone text entries inside the XML tree layout
+        // Scan the feed entries to find the standalone privacy page
         const entries = Array.from(xmlDoc.querySelectorAll('entry'));
-        
-        // Locate your specific privacy policy page by matching its exact title or URL keyword
         const privacyEntry = entries.find((entry) => {
           const titleText = entry.querySelector('title')?.textContent || '';
           const contentText = entry.querySelector('content')?.textContent || '';
@@ -35,7 +33,6 @@ export default function PrivacyPage({ onBack }: PrivacyPageProps) {
         const rawHtmlBody = privacyEntry?.querySelector('content')?.textContent;
 
         if (rawHtmlBody) {
-          // Parse the clean text string inside an isolated document frame
           const htmlParser = new DOMParser();
           const doc = htmlParser.parseFromString(rawHtmlBody, 'text/html');
           
@@ -50,7 +47,7 @@ export default function PrivacyPage({ onBack }: PrivacyPageProps) {
 
           setHtmlContent(doc.body.innerHTML);
         } else {
-          setHtmlContent('<p style="text-align:center; opacity:0.7;">Privacy Policy text content could not be located in the feed data streams.</p>');
+          setHtmlContent('<p style="text-align:center; opacity:0.7;">Privacy Policy text content could not be found in the feed data.</p>');
         }
       })
       .catch((err) => {
@@ -65,7 +62,7 @@ export default function PrivacyPage({ onBack }: PrivacyPageProps) {
       {/* ===== ACTION ROW ELEMENTS ===== */}
       <div className="mb-10 flex flex-wrap items-center justify-between gap-4 border-b pb-6" style={{ borderColor: 'hsl(43 65% 52% / 0.2)' }}>
         
-        {/* 1. Back to Vercel App Button */}
+        {/* 1. Back to App Button */}
         <button 
           onClick={onBack}
           className="text-accent/90 hover:text-accent border rounded-full font-sans text-xs uppercase tracking-wider cursor-pointer transition-all bg-transparent"
@@ -102,14 +99,12 @@ export default function PrivacyPage({ onBack }: PrivacyPageProps) {
       </div>
 
       {/* ===== NATIVE RENDER SECTION ===== */}
-      {/* Uses your exact styling system definitions natively */}
       <div className="card-sacred p-6 sm:p-10 relative overflow-hidden">
         <div className="flex items-center justify-center gap-3 mb-8">
           <img src={appIcon} alt="" width={44} height={44} className="rounded-xl" />
           <h1 className="font-serif text-2xl sm:text-3xl text-gold-gradient m-0">Privacy Policy</h1>
         </div>
         
-        {/* The dynamic text content injected right into your theme wrapper */}
         <div 
           className="prose max-w-none text-foreground/80 leading-relaxed space-y-4 font-sans"
           style={{ 
