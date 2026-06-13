@@ -9,36 +9,39 @@ export default function PrivacyPage({ onBack }: PrivacyPageProps) {
   const [htmlContent, setHtmlContent] = useState<string>('<p style="text-align:center; opacity:0.6; padding: 40px;">Loading Privacy Policy...</p>');
 
   useEffect(() => {
-    // Uses AllOrigins open-source proxy to bypass the CORS block safely on production URLs
-    fetch(`https://api.allorigins.win/get?url=${encodeURIComponent('https://bhaktiwithekta.blogspot.com/2026/02/privacy-policy.html')}`)
+    // Fetches the clean JSON feed of your exact standalone Blogger Page path
+    fetch('https://bhaktiwithekta.blogspot.com/feeds/pages/default?alt=json')
       .then((response) => {
-        if (response.ok) return response.json();
-        throw new Error('Network response was not ok.');
+        if (!response.ok) throw new Error('Network error');
+        return response.json();
       })
       .then((data) => {
-        // AllOrigins wraps the raw text inside a data.contents string
-        const htmlString = data.contents;
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(htmlString, 'text/html');
+        const entries = data.feed?.entry || [];
         
-        // Targets the main Blogspot post container safely
-        const postBody = doc.querySelector('.post-body') || doc.querySelector('.entry-content') || doc.body;
-        
-        if (postBody) {
-          // Remove elements that shouldn't display in our Vercel container
-          const logo = postBody.querySelector('.app-logo');
-          const installBtn = postBody.querySelector('.install-btn-wrap');
-          const copyright = postBody.querySelector('.copyright');
-          const styleTags = postBody.querySelectorAll('style');
+        // Find the specific page by matching its exact URL identifier
+        const privacyEntry = entries.find((entry: any) => {
+          const links = entry.link || [];
+          return links.some((l: any) => l.rel === 'alternate' && l.href.includes('jaap-karo-privacy-policy'));
+        });
+
+        if (privacyEntry && privacyEntry.content && privacyEntry.content.$t) {
+          let cleanHtml = privacyEntry.content.$t;
+          
+          // Clean up any remaining layout artifacts from the editor text frame
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(cleanHtml, 'text/html');
+          
+          const logo = doc.querySelector('.app-logo');
+          const installBtn = doc.querySelector('.install-btn-wrap');
+          const copyright = doc.querySelector('.copyright');
           
           if (logo) logo.remove();
           if (installBtn) installBtn.remove();
           if (copyright) copyright.remove();
-          styleTags.forEach(tag => tag.remove());
 
-          setHtmlContent(postBody.innerHTML);
+          setHtmlContent(doc.body.innerHTML);
         } else {
-          setHtmlContent('<p>Privacy Policy content could not be parsed.</p>');
+          setHtmlContent('<p style="text-align:center; opacity:0.7;">Privacy Policy text content could not be isolated from the feed.</p>');
         }
       })
       .catch((err) => {
