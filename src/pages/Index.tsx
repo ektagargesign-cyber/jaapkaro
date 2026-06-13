@@ -38,9 +38,9 @@ const PhoneMockup = ({
           background: "linear-gradient(180deg, hsl(0 43% 9%), hsl(0 13% 5%))",
         }}
       >
-        {/* notch */}
+        
         <div className="absolute left-1/2 top-2 z-10 h-4 w-16 -translate-x-1/2 rounded-full bg-black/80" />
-        {/* status */}
+        
         <div className="flex items-center justify-between px-5 pt-2 text-[9px] text-foreground/60">
           <span>9:41</span>
           <span>•••</span>
