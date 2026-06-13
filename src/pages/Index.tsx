@@ -122,13 +122,14 @@ const PhoneMockup = ({
     </div>
   </div>
 );
+*/
 
 const TempleDivider = () => (
   <div className="container-sacred my-16 sm:my-24">
     <div className="divider-temple" />
   </div>
 );
-*/
+
 
 const PhoneMockup = ({
   image,
