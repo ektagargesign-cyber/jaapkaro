@@ -560,10 +560,11 @@ const Index = () => {
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-3">
             {[
+              ["Google Play Store", PLAY_URL],
               ["YouTube", "https://www.youtube.com/@BhaktiWithEkta"],
-              ["Blog", "https://bhaktiwithekta.com"],
+              ["Blog", "https://bhaktiwithekta.blogspot.com"],
               ["Instagram", "https://instagram.com/bhaktiwithekta"],
-              ["Facebook", "https://facebook.com/bhaktiwithekta"],
+              ["Facebook", "https://www.facebook.com/share/1GzCaLnsUF/"],
             ].map(([n, u]) => (
               <a key={n} href={u} target="_blank" rel="noopener" className="btn-ghost-gold text-sm">{n}</a>
             ))}
