@@ -9,16 +9,20 @@ export default function PrivacyPage({ onBack }: PrivacyPageProps) {
   const [htmlContent, setHtmlContent] = useState<string>('<p style="text-align:center; opacity:0.6; padding: 40px;">Loading Privacy Policy...</p>');
 
   useEffect(() => {
-    // Fetches the clean JSON feed of your exact standalone Blogger Page path
-    fetch('https://bhaktiwithekta.blogspot.com/feeds/pages/default?alt=json')
+    // Uses a highly available, open-source proxy layer specifically formatted for standard JSON text strings
+    const feedUrl = 'https://bhaktiwithekta.blogspot.com/feeds/pages/default?alt=json';
+    
+    fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(feedUrl)}`)
       .then((response) => {
-        if (!response.ok) throw new Error('Network error');
+        if (!response.ok) throw new Error('Network response was not ok.');
         return response.json();
       })
       .then((data) => {
-        const entries = data.feed?.entry || [];
+        // AllOrigins returns the string inside data.contents; we parse it to a clean JSON object
+        const feedData = typeof data.contents === 'string' ? JSON.parse(data.contents) : data.contents;
+        const entries = feedData.feed?.entry || [];
         
-        // Find the specific page by matching its exact URL identifier
+        // Matches your exact standalone custom Page slug
         const privacyEntry = entries.find((entry: any) => {
           const links = entry.link || [];
           return links.some((l: any) => l.rel === 'alternate' && l.href.includes('jaap-karo-privacy-policy'));
@@ -27,21 +31,23 @@ export default function PrivacyPage({ onBack }: PrivacyPageProps) {
         if (privacyEntry && privacyEntry.content && privacyEntry.content.$t) {
           let cleanHtml = privacyEntry.content.$t;
           
-          // Clean up any remaining layout artifacts from the editor text frame
           const parser = new DOMParser();
           const doc = parser.parseFromString(cleanHtml, 'text/html');
           
+          // Clean out any stray layout hooks or style tags automatically
           const logo = doc.querySelector('.app-logo');
           const installBtn = doc.querySelector('.install-btn-wrap');
           const copyright = doc.querySelector('.copyright');
+          const styleTags = doc.querySelectorAll('style');
           
           if (logo) logo.remove();
           if (installBtn) installBtn.remove();
           if (copyright) copyright.remove();
+          styleTags.forEach(tag => tag.remove());
 
           setHtmlContent(doc.body.innerHTML);
         } else {
-          setHtmlContent('<p style="text-align:center; opacity:0.7;">Privacy Policy text content could not be isolated from the feed.</p>');
+          setHtmlContent('<p style="text-align:center; opacity:0.7;">Privacy Policy text content could not be located in the feed data layout.</p>');
         }
       })
       .catch((err) => {
