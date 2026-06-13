@@ -373,7 +373,7 @@ const Index = () => {
               style={{ filter: "saturate(0.9) brightness(0.85)" }}
             />
             </a>
-            <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, transparent 40%, hsl(0 13% 5% / 0.8))" }} />
+            <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(180deg, transparent 40%, hsl(0 13% 5% / 0.8))" }} />
             <figcaption className="absolute bottom-0 left-0 right-0 p-6 font-devanagari text-sm text-accent/90 text-center">
               "जहाँ श्रद्धा, वहाँ ईश्वर।"
             </figcaption>
