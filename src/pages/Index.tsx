@@ -3,10 +3,18 @@ import { Helmet } from "react-helmet-async";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import appIcon from "@/assets/app-icon.png";
 import mandalaBg from "@/assets/mandala-bg.jpg";
-import diyaGlow from "@/assets/diya-glow.jpg";
+import diyaGlow from "@/assets/app-icon.png";
 import malaShot from "@/assets/screenshots/Mala_Completion_celebration.png";
 import goalShot from "@/assets/screenshots/Goal_completed_green_ring.png";
 import settingsShot from "@/assets/screenshots/Settings.png";
+import screen1 from "@/assets/screenshots/1__Main_screen_1080x2400.png";
+import screen2 from "@/assets/screenshots/2__Counting_screen_1080x2400.png";
+import screen3 from "@/assets/screenshots/3__Completion_celebration_1080x2400.png";
+import screen4 from "@/assets/screenshots/4__Goal_completed_green_ring_1080x2400.png";
+import screen5 from "@/assets/screenshots/5__Settings_1080x2400.png";
+import screen6 from "@/assets/screenshots/6__About_1080x2400.png";
+import screen7 from "@/assets/screenshots/7__Set_beads_1080x2400.png";
+import screen8 from "@/assets/screenshots/8__Jaap_History_1080x2400.png";
 
 const PLAY_URL = "https://play.google.com/store/apps/details?id=com.bhaktiwithekta.jaapkaro";
 
@@ -364,7 +372,7 @@ const Index = () => {
               style={{ filter: "saturate(0.9) brightness(0.85)" }}
             />
             <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, transparent 40%, hsl(0 13% 5% / 0.8))" }} />
-            <figcaption className="absolute bottom-0 left-0 right-0 p-6 font-devanagari text-sm text-accent/90">
+            <figcaption className="absolute bottom-0 left-0 right-0 p-6 font-devanagari text-sm text-accent/90 text-center">
               "जहाँ श्रद्धा, वहाँ ईश्वर।"
             </figcaption>
           </figure>
@@ -431,18 +439,9 @@ const Index = () => {
       <Section eyebrow="Inside the app" title="A sacred space, in your pocket">
         <div className="-mx-5 overflow-x-auto pb-6 sm:mx-0">
           <div className="flex min-w-max gap-5 px-5 sm:gap-7 sm:px-0">
-            {[
-              { t: "108 Mala", s: "ॐ नमः शिवाय", v: "default" as const, c: 27 },
-              { t: "Daily Streak", s: "आपकी साधना", v: "streak" as const },
-              { t: "Daily Goals", s: "आज का संकल्प", v: "goals" as const },
-              { t: "Jaap History", s: "आपकी यात्रा", v: "history" as const },
-              { t: "Hanuman Chalisa", s: "जय श्री राम", v: "default" as const, c: 86 },
-              { t: "Gayatri Mantra", s: "ॐ भूर्भुवः स्वः", v: "default" as const, c: 41 },
-              { t: "Mahamrityunjaya", s: "त्र्यम्बकं यजामहे", v: "default" as const, c: 95 },
-              { t: "Custom Sankhya", s: "1008 जप", v: "default" as const, c: 12 },
-            ].map((p) => (
-              <div key={p.t}>
-                <PhoneMockup title={p.t} subtitle={p.s} variant={p.v} count={p.c} />
+            {[screen1, screen2, screen3, screen4, screen5, screen6, screen7, screen8].map((img, i) => (
+              <div key={i}>
+                <PhoneMockup image={img} />
               </div>
             ))}
           </div>
