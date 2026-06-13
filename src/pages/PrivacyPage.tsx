@@ -9,35 +9,37 @@ export default function PrivacyPage({ onBack }: PrivacyPageProps) {
   const [htmlContent, setHtmlContent] = useState<string>('<p style="text-align:center; opacity:0.6; padding: 40px;">Loading Privacy Policy...</p>');
 
   useEffect(() => {
-    // Fetches the raw XML feed of your precise page to bypass CORS blocks and eliminate sidebars
+    // Fetches Google's open RSS feed layout for standalone pages to bypass deprecation blocks
     fetch('https://bhaktiwithekta.blogspot.com/feeds/pages/default')
       .then((response) => {
-        if (!response.ok) throw new Error('Network error');
+        if (!response.ok) throw new Error('Network response was not ok.');
         return response.text();
       })
-      .then((xmlString) => {
+      .then((str) => {
         const parser = new DOMParser();
-        const xmlDoc = parser.parseFromString(xmlString, 'text/xml');
+        const xmlDoc = parser.parseFromString(str, 'text/xml');
         
-        // Scan the feed entries to find the one matching your unique page URL identifier
+        // Find all standalone text entries inside the XML tree layout
         const entries = Array.from(xmlDoc.querySelectorAll('entry'));
-        const privacyEntry = entries.find(entry => {
-          const links = Array.from(entry.querySelectorAll('link'));
-          return links.some(link => {
-            const href = link.getAttribute('href') || '';
-            return link.getAttribute('rel') === 'alternate' && href.includes('jaap-karo-privacy-policy');
-          });
+        
+        // Locate your specific privacy policy page by matching its exact title or URL keyword
+        const privacyEntry = entries.find((entry) => {
+          const titleText = entry.querySelector('title')?.textContent || '';
+          const contentText = entry.querySelector('content')?.textContent || '';
+          return (
+            titleText.toLowerCase().includes('privacy') || 
+            contentText.toLowerCase().includes('jaap-karo-privacy-policy')
+          );
         });
 
-        // Extract just the raw body text content string inside the matched entry
-        const contentTag = privacyEntry?.querySelector('content');
-        if (contentTag) {
-          const rawHtmlContent = contentTag.textContent || '';
-          
-          // Clean out any application-specific layout items embedded inside the text editor framework
+        const rawHtmlBody = privacyEntry?.querySelector('content')?.textContent;
+
+        if (rawHtmlBody) {
+          // Parse the clean text string inside an isolated document frame
           const htmlParser = new DOMParser();
-          const doc = htmlParser.parseFromString(rawHtmlContent, 'text/html');
+          const doc = htmlParser.parseFromString(rawHtmlBody, 'text/html');
           
+          // Clear out any template hooks embedded by the editor frame automatically
           const logo = doc.querySelector('.app-logo');
           const installBtn = doc.querySelector('.install-btn-wrap');
           const copyright = doc.querySelector('.copyright');
@@ -48,7 +50,7 @@ export default function PrivacyPage({ onBack }: PrivacyPageProps) {
 
           setHtmlContent(doc.body.innerHTML);
         } else {
-          setHtmlContent('<p style="text-align:center; opacity:0.7;">Privacy Policy text content could not be isolated from the feed.</p>');
+          setHtmlContent('<p style="text-align:center; opacity:0.7;">Privacy Policy text content could not be located in the feed data streams.</p>');
         }
       })
       .catch((err) => {
