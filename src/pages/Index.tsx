@@ -4,10 +4,26 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import appIcon from "@/assets/app-icon.png";
 import mandalaBg from "@/assets/mandala-bg.jpg";
 import diyaGlow from "@/assets/diya-glow.jpg";
+import malaShot from "@/assets/screenshots/Mala_Completion_celebration.png";
+import goalShot from "@/assets/screenshots/Goal_completed_green_ring.png";
+import settingsShot from "@/assets/screenshots/Settings.png";
+
+<meta name="google-site-verification" content="HG2mEsVOa1wNsv2gfoehwirajEOuDdTB9yugR9ZP-9s" />
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GLJ2SR3BEM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GLJ2SR3BEM');
+</script>
 
 const PLAY_URL = "https://play.google.com/store/apps/details?id=com.bhaktiwithekta.jaapkaro";
 
 /* Stylized devotional phone mockup (no external screenshots needed) */
+/*
 const PhoneMockup = ({
   title,
   subtitle,
@@ -124,6 +140,48 @@ const TempleDivider = () => (
     <div className="divider-temple" />
   </div>
 );
+*/
+
+const PhoneMockup = ({
+  image,
+}: {
+  image: string;
+}) => (
+  <div className="relative mx-auto" style={{ width: 240 }}>
+    <div
+      className="relative rounded-[2.5rem] p-3"
+      style={{
+        background:
+          "linear-gradient(160deg, hsl(43 60% 45% / 0.4), hsl(0 0% 0%))",
+        boxShadow:
+          "0 30px 80px -20px hsl(0 0% 0% / 0.7), 0 0 40px -10px hsl(28 95% 49% / 0.3)",
+      }}
+    >
+      <div
+        className="relative overflow-hidden rounded-[2rem]"
+        style={{
+          aspectRatio: "9/19",
+          background:
+            "linear-gradient(180deg, hsl(0 43% 9%), hsl(0 13% 5%))",
+        }}
+      >
+        {/* Notch */}
+        <div className="absolute left-1/2 top-2 z-20 h-4 w-16 -translate-x-1/2 rounded-full bg-black/90" />
+
+        {/* Screenshot */}
+        <img
+          src={image}
+          alt="Jaap Karo app screenshot"
+          className="h-full w-full object-cover"
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </div>
+);
+
+
+
 
 const Section = ({ id, children, eyebrow, title, hindi }: { id?: string; children: React.ReactNode; eyebrow?: string; title?: string; hindi?: string }) => (
   <section id={id} className="container-sacred py-12 sm:py-20">
@@ -259,15 +317,17 @@ const Index = () => {
               />
               <div className="flex items-end gap-3 sm:gap-5">
                 <div className="hidden sm:block opacity-70" style={{ transform: "translateY(20px) rotate(-6deg)" }}>
-                  <PhoneMockup title="Daily Streak" subtitle="आपकी साधना" variant="streak" />
+                    <PhoneMockup image={goalShot} />
                 </div>
+
                 <div className="relative z-10">
-                  <PhoneMockup title="Mahamantra" subtitle="ॐ नमः शिवाय" count={54} />
+                    <PhoneMockup image={malaShot} />
                 </div>
+
                 <div className="hidden sm:block opacity-70" style={{ transform: "translateY(20px) rotate(6deg)" }}>
-                  <PhoneMockup title="Daily Goals" subtitle="आज का संकल्प" variant="goals" />
+                    <PhoneMockup image={settingsShot} />
                 </div>
-              </div>
+            </div>
             </div>
           </div>
         </div>
