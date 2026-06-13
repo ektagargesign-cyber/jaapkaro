@@ -362,15 +362,17 @@ const Index = () => {
             </p>
           </div>
           <figure className="relative overflow-hidden rounded-3xl">
+          <a href={PLAY_URL} target="_blank" rel="noopener">
             <img
               src={diyaGlow}
-              alt="A glowing brass diya surrounded by rudraksha beads"
+              alt="Jaap Karo digital mala counter app icon"
               loading="lazy"
               width={1280}
               height={896}
               className="h-full w-full object-cover"
               style={{ filter: "saturate(0.9) brightness(0.85)" }}
             />
+            </a>
             <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, transparent 40%, hsl(0 13% 5% / 0.8))" }} />
             <figcaption className="absolute bottom-0 left-0 right-0 p-6 font-devanagari text-sm text-accent/90 text-center">
               "जहाँ श्रद्धा, वहाँ ईश्वर।"
