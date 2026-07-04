@@ -287,7 +287,7 @@ const Index = () => {
             </p>
 
             <div className="mt-9 flex flex-col items-center gap-4 sm:flex-row sm:justify-center lg:justify-start">
-              <a href={PLAY_URL} target="_blank" rel="noopener" className="btn-sacred w-full sm:w-auto">
+              <a href={PLAY_URL} target="_blank" rel="noopener" className="btn-sacred w-full sm:min-w-[240px]">
                 <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden><path d="M3.6 2.3C3.2 2.6 3 3.1 3 3.8v16.4c0 .7.2 1.2.6 1.5l9.1-9.7L3.6 2.3zM14.5 13.4l2.6 2.6 4.4-2.5c1-.6 1-1.6 0-2.2L17 8.9l-2.5 2.6 0 1.9zM4.7 1.7l9.2 9.8 2.3-2.4L5.6 1.3c-.3-.1-.6-.1-.9.4zM4.7 22.3c.3.5.6.5.9.4L16.2 14.9l-2.3-2.4-9.2 9.8z"/></svg>
                 Get it on Google Play
               </a>
@@ -296,7 +296,7 @@ const Index = () => {
 			      href="https://apps.microsoft.com/detail/9NB75XLV57TS"
     			  target="_blank"
     			  rel="noopener noreferrer"
-    			  className="btn-sacred w-full sm:w-auto"
+    			  className="btn-sacred w-full sm:min-w-[240px]"
   			  >
     			  💻 Download for Windows
   			  </a>
@@ -305,12 +305,12 @@ const Index = () => {
     			  href="https://www.reddit.com/r/JaapKaro/"
     			  target="_blank"
     			  rel="noopener noreferrer"
-    			  className="btn-sacred w-full sm:w-auto"
+    			  className="btn-sacred w-full sm:min-w-[240px]"
   			  >
     			  💬 Join the Community
   			  </a>
 			  
-              <a href="#features" className="btn-ghost-gold w-full sm:w-auto">Explore Features</a>
+              <a href="#features" className="btn-sacred w-full sm:min-w-[240px]">Explore Features</a>
             </div>
 
             <ul className="mt-10 grid grid-cols-2 gap-3 text-xs text-foreground/70 sm:grid-cols-4 sm:text-sm">
@@ -549,7 +549,7 @@ const Index = () => {
       <Section eyebrow="From the bhakti community" title="Words from fellow devotees">
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {[
-            { n: "Ramesh K.", l: "Pune", q: "Travelling for work, I'd often miss my evening jaap. Jaap Karo has kept my 11-month streak alive. Truly a humble companion." },
+            { n: "Varun G.", l: "Delhi", q: "Masterclass in design! Incredibly intuitive and motivating. This is hands-down the best digital counter app I’ve used. The UI is clean and distraction-free, but what makes it brilliant is how interactive it is. You don't have to navigate deep settings menus; you can literally tap the info right on the main screen (like the bead count) to instantly change it. ​The visual and audio cues are incredibly satisfying. The inner circle fills up as you complete a mala, and the moment you finish it." },
             { n: "Priya S.", l: "Delhi", q: "मुझे सबसे अच्छी बात यह लगी कि app में कोई शोर नहीं है — बस माला, बस मंत्र। बहुत शुद्ध अनुभव।" },
             { n: "Anand M.", l: "Bengaluru", q: "The 1008 custom count and offline mode make my Mahamrityunjaya anushthan effortless. Quiet, respectful, beautifully made." },
             { n: "Sushila Devi", l: "Varanasi", q: "उम्र के साथ उँगलियों पर गिनना मुश्किल था। अब रोज़ का जप आसान है, और मन भी शांत रहता है।" },
@@ -583,10 +583,14 @@ const Index = () => {
           <div className="mt-6 flex flex-wrap justify-center gap-3">
             {[
               ["Google Play Store", PLAY_URL],
+			  ["Microsoft Store", https://apps.microsoft.com/detail/9NB75XLV57TS],
               ["YouTube", "https://www.youtube.com/@BhaktiWithEkta"],
+			  ["Reddit", "https://www.reddit.com/r/JaapKaro/"],
               ["Blog", "https://bhaktiwithekta.blogspot.com"],
               ["Instagram", "https://instagram.com/bhaktiwithekta"],
               ["Facebook", "https://www.facebook.com/share/1GzCaLnsUF/"],
+			  ["Official Website", "https://jaapkaro.vercel.app"],
+			  ["Amazon E-Book", "https://amzn.in/d/8KwUFVP"],
             ].map(([n, u]) => (
               <a key={n} href={u} target="_blank" rel="noopener" className="btn-ghost-gold text-sm">{n}</a>
             ))}
@@ -700,7 +704,24 @@ const Index = () => {
 			    <span>·</span>
 			  
                 <a href="https://bhaktiwithekta.blogspot.com/p/jaap-karo-privacy-policy-bhaktiwithekta.html" target="_blank" rel="noopener noreferrer" className="text-sm underline text-foreground/50 hover:text-accent">Privacy Policy</a>
-                </p>
+                
+				<span>·</span>
+				
+				<a href="https://instagram.com/bhaktiwithekta" target="_blank" rel="noopener noreferrer" className="text-sm underline text-foreground/50 hover:text-accent">Instagram</a>
+				
+				<span>·</span>
+				
+				<a href="https://www.facebook.com/share/1GzCaLnsUF/" target="_blank" rel="noopener noreferrer" className="text-sm underline text-foreground/50 hover:text-accent">Facebook</a>
+				
+				<span>·</span>
+				
+				<a href="https://amzn.in/d/8KwUFVP" target="_blank" rel="noopener noreferrer" className="text-sm underline text-foreground/50 hover:text-accent">Amazon E-Book</a>
+				
+				<span>·</span>
+				
+				<a href="https://jaapkaro.vercel.app" target="_blank" rel="noopener noreferrer" className="text-sm underline text-foreground/50 hover:text-accent">Official Website</a>
+				
+				</p>
             
             <p className="mt-2 max-w-md font-devanagari text-foreground/55">
               "सर्वे भवन्तु सुखिनः, सर्वे सन्तु निरामयाः।"
