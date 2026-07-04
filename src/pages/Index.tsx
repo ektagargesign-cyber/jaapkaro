@@ -286,7 +286,8 @@ const Index = () => {
               Jaap Karo is a Hindu devotional mala counter app — a quiet spiritual companion for daily jaap, mantra chanting and unbroken bhakti. Count 108 beads, set sankalp, track your streak, and stay devoted even when your physical mala isn't with you.
             </p>
 
-            <div className="mt-9 flex flex-col items-center gap-4 sm:flex-row sm:justify-center lg:justify-start">
+            <div className="mt-9 flex flex-col items-center gap-4">
+			 <div className="flex flex-col items-center gap-4 sm:flex-row lg:justify-start">
               <a href={PLAY_URL} target="_blank" rel="noopener" className="btn-sacred w-full sm:min-w-[240px]">
                 <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden><path d="M3.6 2.3C3.2 2.6 3 3.1 3 3.8v16.4c0 .7.2 1.2.6 1.5l9.1-9.7L3.6 2.3zM14.5 13.4l2.6 2.6 4.4-2.5c1-.6 1-1.6 0-2.2L17 8.9l-2.5 2.6 0 1.9zM4.7 1.7l9.2 9.8 2.3-2.4L5.6 1.3c-.3-.1-.6-.1-.9.4zM4.7 22.3c.3.5.6.5.9.4L16.2 14.9l-2.3-2.4-9.2 9.8z"/></svg>
                 Get it on Google Play
@@ -300,7 +301,9 @@ const Index = () => {
   			  >
     			  💻 Download for Windows
   			  </a>
+			  </div>
 
+              <div className="flex flex-col items-center gap-4 sm:flex-row lg:justify-start">
   			  <a
     			  href="https://www.reddit.com/r/JaapKaro/"
     			  target="_blank"
@@ -312,7 +315,7 @@ const Index = () => {
 			  
               <a href="#features" className="btn-sacred w-full sm:min-w-[240px]">Explore Features</a>
             </div>
-
+            </div>
             <ul className="mt-10 grid grid-cols-2 gap-3 text-xs text-foreground/70 sm:grid-cols-4 sm:text-sm">
               {["Works Offline", "Daily Streak", "108 Mala Experience", "Free to Use"].map((t) => (
                 <li key={t} className="flex items-center gap-2">
