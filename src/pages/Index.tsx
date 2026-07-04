@@ -15,6 +15,7 @@ import screen5 from "@/assets/screenshots/5. Settings_1080x2400.png";
 import screen6 from "@/assets/screenshots/6. About_1080x2400.png";
 import screen7 from "@/assets/screenshots/7. Set beads_1080x2400.png";
 import screen8 from "@/assets/screenshots/8. Jaap History_1080x2400.png";
+import bookCover from "@/assets/books/weight-of-dharma-cover.jpg";
 
 const PLAY_URL = "https://play.google.com/store/apps/details?id=com.bhaktiwithekta.jaapkaro";
 
@@ -604,18 +605,11 @@ const Index = () => {
       {/* ===== ALSO BY US ===== */}
       <Section eyebrow="Also by us" title="The Weight of Dharma">
         <div className="card-sacred mx-auto grid max-w-4xl gap-8 sm:grid-cols-[180px_1fr] sm:items-center">
-          <div
-            className="mx-auto flex aspect-[2/3] w-40 items-center justify-center rounded-lg p-6 text-center font-serif text-xl text-foreground"
-            style={{
-              background: "linear-gradient(160deg, hsl(0 50% 18%), hsl(0 13% 5%))",
-              border: "1px solid hsl(43 65% 52% / 0.3)",
-              boxShadow: "var(--shadow-bead)",
-            }}
-          >
-            <div>
-              <div className="mb-2 text-xs uppercase tracking-[0.2em] text-accent/80">A Book</div>
-              <div className="text-gold-gradient">The Weight of Dharma</div>
-            </div>
+          <img
+            src={bookCover}
+            alt="The Weight of Dharma book cover"
+            className="mx-auto w-40 rounded-lg shadow-xl border border-accent/30 transition-transform duration-300 hover:scale-105"
+          />
           </div>
           <div className="text-center sm:text-left">
             <h3 className="font-serif text-2xl text-foreground">A reflective journey through duty, devotion and the modern Hindu life.</h3>
