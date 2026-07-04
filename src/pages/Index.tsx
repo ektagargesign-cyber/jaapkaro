@@ -583,7 +583,7 @@ const Index = () => {
           <div className="mt-6 flex flex-wrap justify-center gap-3">
             {[
               ["Google Play Store", PLAY_URL],
-			  ["Microsoft Store", https://apps.microsoft.com/detail/9NB75XLV57TS],
+			  ["Microsoft Store", "https://apps.microsoft.com/detail/9NB75XLV57TS"],
               ["YouTube", "https://www.youtube.com/@BhaktiWithEkta"],
 			  ["Reddit", "https://www.reddit.com/r/JaapKaro/"],
               ["Blog", "https://bhaktiwithekta.blogspot.com"],
