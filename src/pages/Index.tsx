@@ -291,6 +291,25 @@ const Index = () => {
                 <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden><path d="M3.6 2.3C3.2 2.6 3 3.1 3 3.8v16.4c0 .7.2 1.2.6 1.5l9.1-9.7L3.6 2.3zM14.5 13.4l2.6 2.6 4.4-2.5c1-.6 1-1.6 0-2.2L17 8.9l-2.5 2.6 0 1.9zM4.7 1.7l9.2 9.8 2.3-2.4L5.6 1.3c-.3-.1-.6-.1-.9.4zM4.7 22.3c.3.5.6.5.9.4L16.2 14.9l-2.3-2.4-9.2 9.8z"/></svg>
                 Get it on Google Play
               </a>
+			  
+			  <a
+			      href="https://apps.microsoft.com/detail/9NB75XLV57TS"
+    			  target="_blank"
+    			  rel="noopener noreferrer"
+    			  className="btn-sacred w-full sm:w-auto"
+  			  >
+    			  💻 Download for Windows
+  			  </a>
+
+  			  <a
+    			  href="https://www.reddit.com/r/JaapKaro/"
+    			  target="_blank"
+    			  rel="noopener noreferrer"
+    			  className="btn-sacred w-full sm:w-auto"
+  			  >
+    			  💬 Join the Community
+  			  </a>
+			  
               <a href="#features" className="btn-ghost-gold w-full sm:w-auto">Explore Features</a>
             </div>
 
@@ -623,11 +642,65 @@ const Index = () => {
               <span className="font-serif text-base text-foreground/80">Jaap Karo</span>
             </div>
             <p className="flex items-center gap-2 flex-wrap justify-center">
-              <span>Contact: <a href="mailto:bhaktiwithekta@gmail.com" className="text-accent/80 hover:text-accent">bhaktiwithekta@gmail.com</a></span>
+              <span>Contact: <a href="mailto:bhaktiwithekta@gmail.com" className="text-accent/80 hover:text-accent">{" "}bhaktiwithekta@gmail.com</a></span>
               <span>·</span>
-              
-            <a href="https://bhaktiwithekta.blogspot.com/p/jaap-karo-privacy-policy-bhaktiwithekta.html" target="_blank" rel="noopener noreferrer" className="text-sm underline text-foreground/50 hover:text-accent">Privacy Policy</a>
-            </p>
+              <a
+                  href={PLAY_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm underline text-foreground/50 hover:text-accent"
+                >
+                  Google Play
+                </a>
+
+                <span>·</span>
+
+                <a
+                  href="https://apps.microsoft.com/detail/9NB75XLV57TS"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm underline text-foreground/50 hover:text-accent"
+                >
+                  Microsoft Store
+                </a>
+
+                <span>·</span>
+
+                <a
+                  href="https://www.reddit.com/r/JaapKaro/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm underline text-foreground/50 hover:text-accent"
+                >
+                  Reddit Community
+                </a>
+
+                <span>·</span>
+
+                <a
+                  href="https://www.youtube.com/@BhaktiWithEkta"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm underline text-foreground/50 hover:text-accent"
+                >
+                  YouTube
+                </a>
+
+                <span>·</span>
+				
+				<a
+  				href="https://bhaktiwithekta.blogspot.com/"
+  				target="_blank"
+  				rel="noopener noreferrer"
+  				className="text-sm underline text-foreground/50 hover:text-accent"
+				>
+  				Blog
+				</a>
+			  
+			    <span>·</span>
+			  
+                <a href="https://bhaktiwithekta.blogspot.com/p/jaap-karo-privacy-policy-bhaktiwithekta.html" target="_blank" rel="noopener noreferrer" className="text-sm underline text-foreground/50 hover:text-accent">Privacy Policy</a>
+                </p>
             
             <p className="mt-2 max-w-md font-devanagari text-foreground/55">
               "सर्वे भवन्तु सुखिनः, सर्वे सन्तु निरामयाः।"
@@ -636,7 +709,7 @@ const Index = () => {
           </div>
         </div>
       </footer>
-
+	
       {/* ===== STICKY MOBILE CTA ===== */}
       <div
         className={`fixed inset-x-0 bottom-0 z-50 px-4 pb-[max(env(safe-area-inset-bottom),12px)] pt-3 transition-all sm:hidden ${
