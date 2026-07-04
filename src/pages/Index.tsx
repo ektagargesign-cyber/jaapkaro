@@ -610,7 +610,7 @@ const Index = () => {
             alt="The Weight of Dharma book cover"
             className="mx-auto w-40 rounded-lg shadow-xl border border-accent/30 transition-transform duration-300 hover:scale-105"
           />
-          </div>
+          
           <div className="text-center sm:text-left">
             <h3 className="font-serif text-2xl text-foreground">A reflective journey through duty, devotion and the modern Hindu life.</h3>
             <p className="mt-3 leading-relaxed text-foreground/75">
