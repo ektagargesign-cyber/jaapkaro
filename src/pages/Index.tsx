@@ -511,7 +511,7 @@ const Index = () => {
           </div>
           <div className="relative overflow-hidden rounded-3xl border border-accent/20 shadow-[var(--shadow-soft)]" style={{ aspectRatio: "9/16", maxWidth: 360, marginInline: "auto", width: "100%" }}>
             <iframe
-              src="https://www.youtube.com/embed/B8nFVgjdY3E"
+              src="https://www.youtube.com/embed/WBhUh2TnhMk"
               title="Spiritual guidance on jaap"
               loading="lazy"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
