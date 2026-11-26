@@ -259,7 +259,7 @@ const Index = () => {
 
         <nav className="container-sacred relative z-10 flex items-center justify-between py-5">
           <div className="flex items-center gap-2.5">
-            <img src={ytAvatar} alt="Jaap Karo app icon" width={36} height={36} className="rounded-lg" />
+            <img src={appIcon} alt="Jaap Karo app icon" width={36} height={36} className="rounded-lg" />
             <span className="font-serif text-lg tracking-wide">Jaap Karo</span>
           </div>
           <a href={PLAY_URL} target="_blank" rel="noopener" className="hidden sm:inline-flex btn-ghost-gold text-sm">
@@ -609,7 +609,7 @@ const Index = () => {
         <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-2">
           <div className="card-sacred grid gap-8 sm:grid-cols-[180px_1fr] sm:items-center">
             <img
-              src={appIcon}
+              src={ytAvatar}
               alt="Bhakti with Ekta YouTube channel"
               className="mx-auto w-40 rounded-lg shadow-xl border border-accent/30 transition-transform duration-300 hover:scale-105"
             />
