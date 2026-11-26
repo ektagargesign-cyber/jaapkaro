@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { RevealEmail } from "@/components/RevealEmail";
 import appIcon from "@/assets/app-icon.png";
 import mandalaBg from "@/assets/mandala-bg.jpg";
 import diyaGlow from "@/assets/app-icon.png";
@@ -660,7 +661,7 @@ const Index = () => {
               <span className="font-serif text-base text-foreground/80">Jaap Karo</span>
             </div>
             <p className="flex items-center gap-2 flex-wrap justify-center">
-              <span>Contact: <a href="mailto:bhaktiwithekta@gmail.com" className="text-accent/80 hover:text-accent">{" "}bhaktiwithekta@gmail.com</a></span>
+              <span>Contact: <RevealEmail buttonClassName="text-accent/80 hover:text-accent underline cursor-pointer" emailClassName="text-accent font-semibold" /></span>
               <span>·</span>
               <a
                   href={PLAY_URL}

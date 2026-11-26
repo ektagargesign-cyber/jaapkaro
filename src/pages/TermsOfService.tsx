@@ -1,3 +1,4 @@
+import { RevealEmail } from "@/components/RevealEmail";
 export default function TermsOfService() {
   return (
     <main className="mx-auto max-w-3xl px-4 py-12 text-stone-200">
@@ -58,9 +59,7 @@ export default function TermsOfService() {
       <h2 className="mt-8 text-xl font-semibold text-amber-300">7. Contact</h2>
       <p className="mt-2 leading-relaxed">
         For questions about these Terms of Service, contact <strong>Ekta Garg</strong> at{" "}
-        <a href="mailto:caektagoyal@gmail.com" className="underline">
-          caektagoyal@gmail.com
-        </a>{" "}
+        <RevealEmail buttonClassName="underline cursor-pointer" emailClassName="font-semibold underline" />{" "}
         or visit{" "}
         <a href="https://jaapkaro.vercel.app/" className="underline">
           https://jaapkaro.vercel.app/
