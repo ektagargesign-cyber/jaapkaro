@@ -587,6 +587,7 @@ const Index = () => {
               ["Google Play Store", PLAY_URL],
 			  ["Microsoft Store", "https://apps.microsoft.com/detail/9NB75XLV57TS"],
               ["YouTube", "https://www.youtube.com/@BhaktiWithEkta"],
+              ["WhatsApp Channel", "https://whatsapp.com/channel/0029VbDwsak7oQha6HpO511l"],
 			  ["Reddit", "https://www.reddit.com/r/JaapKaro/"],
               ["Blog", "https://bhaktiwithekta.blogspot.com"],
               ["Instagram", "https://instagram.com/bhaktiwithekta"],
@@ -703,6 +704,17 @@ const Index = () => {
                   className="text-sm underline text-foreground/50 hover:text-accent"
                 >
                   YouTube
+                </a>
+
+                <span>·</span>
+
+                <a
+                  href="https://whatsapp.com/channel/0029VbDwsak7oQha6HpO511l"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm underline text-foreground/50 hover:text-accent"
+                >
+                  WhatsApp Channel
                 </a>
 
                 <span>·</span>
