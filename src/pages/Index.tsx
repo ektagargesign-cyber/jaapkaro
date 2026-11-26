@@ -198,7 +198,7 @@ const Section = ({ id, children, eyebrow, title, hindi }: { id?: string; childre
 
 const features = [
   { h: "Traditional 108 Bead Counter", d: "Authentic 108-bead jaap mala counter that honours the sacred number of completion in Sanatan tradition." },
-  { h: "Custom Bead Counts", d: "Set custom counts — 11, 21, 27, 54, 108 or 1008 — to match your sankalp and chosen mantra." },
+  { h: "Custom Bead Counts", d: "Set custom counts (11, 21, 27, 54, 108, or up to 2 crore) to match your sankalp and chosen mantra." },
   { h: "Daily Devotional Goals", d: "Set a daily jaap goal and let Jaap Karo gently guide your sadhana with calm reminders." },
   { h: "Streak & Discipline Tracking", d: "Build unbroken bhakti — track daily streaks and watch your spiritual consistency grow." },
   { h: "Jaap History & Insights", d: "Review your complete jaap history, day by day, to reflect on your spiritual journey." },
@@ -213,9 +213,9 @@ const faqs = [
     a: "Not at all. A physical mala holds sacred energy that can never be replaced. Jaap Karo is a spiritual companion for continuity — for moments when your mala is unavailable, when you are travelling, or when you simply wish to continue your daily jaap with discipline.",
   },
   { q: "Does the mala counter app work offline?", a: "Yes. Jaap Karo is built as an offline mala counter — your jaap, streaks, and history work fully without internet, so your bhakti is never interrupted." },
-  { q: "Can I count more than 108 beads?", a: "Absolutely. Jaap Karo supports custom bead counts including 11, 21, 27, 54, 108 and 1008, so you can match the traditional sankhya of your chosen mantra." },
+  { q: "Can I count more than 108 beads?", a: "Absolutely. Jaap Karo supports custom bead counts and daily goals including 11, 21, 27, 54, 108, 1008, and up to 2 crore, so you can match your chosen mantra or sankalp." },
   { q: "Is Jaap Karo free to use?", a: "Yes, Jaap Karo is free for every devotee. Our intent is to serve the bhakti community with a clean, respectful digital mala app." },
-  { q: "Does the app support Hindi?", a: "Yes — Jaap Karo is designed for Hindu devotees with Hindi-friendly typography and a devotional tone throughout the experience." },
+  { q: "Does the app support Hindi?", a: "Yes — store listings and localization follow your phone/device language via the app store (there is no separate in-app language switcher), alongside Hindi-friendly typography and a devotional tone." },
   { q: "Will it disturb my chanting with notifications?", a: "No. The interface is intentionally distraction-free. Only gentle, optional bell or vibration feedback on each bead — nothing else." },
 ];
 
@@ -386,7 +386,7 @@ const Index = () => {
               It is not a replacement for your rudraksha or tulsi mala. It is a humble companion for continuity — an offline mala counter that travels with you, so your jaap, your mantra, and your discipline stay alive wherever you are.
             </p>
             <p className="mt-4 leading-relaxed text-foreground/80">
-              Count 11, 21, 27, 54, 108 or 1008. Set your daily goal. Build your streak. Reflect on your history. Return to your physical mala when you can — Jaap Karo will be waiting, quietly, for the next time you need it.
+              Count 11, 21, 27, 54, 108, or up to 2 crore. Set your daily goal, build your streak, and reflect on your local history. Return to your physical mala when you can — Jaap Karo will be waiting, quietly, for the next time you need it.
             </p>
           </div>
           <figure className="relative overflow-hidden rounded-3xl">
@@ -415,7 +415,7 @@ const Index = () => {
           {[
             ["Daily Jaap Sadhaks", "For those who chant a fixed sankhya every day and want their discipline preserved."],
             ["Traveling Bhakts", "For pilgrims, professionals and students far from their home mandir."],
-            ["Mantra Sadhana Seekers", "For those undertaking a 40-day, 108-day or 1008-mala anushthan."],
+            ["Mantra Sadhana Seekers", "For those undertaking a 40-day, 108-day, 1008-mala, or up to 2-crore anushthan."],
             ["Beginners in Bhakti", "For new sadhaks learning to build a daily spiritual practice with gentleness."],
             ["Elders & Caregivers", "For anyone who finds counting on fingers tiring and wants a soft, simple aid."],
             ["Anyone Honouring Tradition", "For every devotee who believes consistency is the truest form of bhakti."],
@@ -452,7 +452,7 @@ const Index = () => {
       <Section eyebrow="How it works" title="Begin your jaap in three steps">
         <ol className="grid gap-6 sm:grid-cols-3">
           {[
-            ["Set your sankalp", "Choose your mantra and daily bead goal — 108, 540 or 1008."],
+            ["Set your sankalp", "Choose your mantra and daily bead goal — 108, 540, 1008, or up to 2 crore."],
             ["Tap each bead", "Chant softly and tap. Feel the gentle bell or vibration with every count."],
             ["Build your streak", "Watch your daily discipline grow into weeks, months and lifelong sadhana."],
           ].map(([h, d], i) => (
@@ -556,11 +556,6 @@ const Index = () => {
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {[
             { n: "Varun G.", l: "Delhi", q: "Masterclass in design! Incredibly intuitive and motivating. This is hands-down the best digital counter app I’ve used. The UI is clean and distraction-free, but what makes it brilliant is how interactive it is. You don't have to navigate deep settings menus; you can literally tap the info right on the main screen (like the bead count) to instantly change it. ​The visual and audio cues are incredibly satisfying. The inner circle fills up as you complete a mala, and the moment you finish it." },
-            { n: "Priya S.", l: "Delhi", q: "मुझे सबसे अच्छी बात यह लगी कि app में कोई शोर नहीं है — बस माला, बस मंत्र। बहुत शुद्ध अनुभव।" },
-            { n: "Anand M.", l: "Bengaluru", q: "The 1008 custom count and offline mode make my Mahamrityunjaya anushthan effortless. Quiet, respectful, beautifully made." },
-            { n: "Sushila Devi", l: "Varanasi", q: "उम्र के साथ उँगलियों पर गिनना मुश्किल था। अब रोज़ का जप आसान है, और मन भी शांत रहता है।" },
-            { n: "Vikram J.", l: "Jaipur", q: "Finally a Hindu devotional app that respects the tradition. No flashy ads, no gimmicks — just a clean mala counter." },
-            { n: "Neha A.", l: "Mumbai", q: "The streak tracking gently keeps me accountable without ever feeling like a fitness app. Perfect balance." },
           ].map((t) => (
             <figure key={t.n} className="card-sacred">
               <p className="text-foreground/85 leading-relaxed">"{t.q}"</p>
