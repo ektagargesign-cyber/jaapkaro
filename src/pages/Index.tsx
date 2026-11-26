@@ -17,6 +17,7 @@ import screen6 from "@/assets/screenshots/6. About_1080x2400.png";
 import screen7 from "@/assets/screenshots/7. Set beads_1080x2400.png";
 import screen8 from "@/assets/screenshots/8. Jaap History_1080x2400.png";
 import bookCover from "@/assets/books/weight-of-dharma-cover.jpg";
+import ytAvatar from "@/assets/channels4_profile.jpg";
 
 const PLAY_URL = "https://play.google.com/store/apps/details?id=com.bhaktiwithekta.jaapkaro";
 
@@ -258,7 +259,7 @@ const Index = () => {
 
         <nav className="container-sacred relative z-10 flex items-center justify-between py-5">
           <div className="flex items-center gap-2.5">
-            <img src={appIcon} alt="Jaap Karo app icon" width={36} height={36} className="rounded-lg" />
+            <img src={ytAvatar} alt="Jaap Karo app icon" width={36} height={36} className="rounded-lg" />
             <span className="font-serif text-lg tracking-wide">Jaap Karo</span>
           </div>
           <a href={PLAY_URL} target="_blank" rel="noopener" className="hidden sm:inline-flex btn-ghost-gold text-sm">
@@ -614,7 +615,7 @@ const Index = () => {
             />
 
             <div className="text-center sm:text-left">
-              <h3 className="font-serif text-2xl text-foreground">Bhakti with Ekta on YouTube</h3>
+              <h3 className="font-serif text-2xl text-foreground">BhaktiWithEkta on YouTube</h3>
               <p className="mt-3 leading-relaxed text-foreground/75">
                 Guided chants, mantra sessions, and devotional reflections to accompany your daily jaap and spiritual practice.
               </p>
