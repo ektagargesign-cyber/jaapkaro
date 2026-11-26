@@ -259,7 +259,7 @@ const Index = () => {
 
         <nav className="container-sacred relative z-10 flex items-center justify-between py-5">
           <div className="flex items-center gap-2.5">
-            <img src={appIcon} alt="Jaap Karo app icon" width={36} height={36} className="rounded-lg" />
+            <img src={appIcon} alt="Jaap Karo app icon" width={44} height={44} className="rounded-lg" />
             <span className="font-serif text-lg tracking-wide">Jaap Karo</span>
           </div>
           <a href={PLAY_URL} target="_blank" rel="noopener" className="hidden sm:inline-flex btn-ghost-gold text-sm">
