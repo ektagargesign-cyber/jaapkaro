@@ -605,21 +605,41 @@ const Index = () => {
 
       {/* ===== ALSO BY US ===== */}
       <Section eyebrow="Also by us" title="The Weight of Dharma">
-        <div className="card-sacred mx-auto grid max-w-4xl gap-8 sm:grid-cols-[180px_1fr] sm:items-center">
-          <img
-            src={bookCover}
-            alt="The Weight of Dharma book cover"
-            className="mx-auto w-40 rounded-lg shadow-xl border border-accent/30 transition-transform duration-300 hover:scale-105"
-          />
-          
-          <div className="text-center sm:text-left">
-            <h3 className="font-serif text-2xl text-foreground">A reflective journey through duty, devotion and the modern Hindu life.</h3>
-            <p className="mt-3 leading-relaxed text-foreground/75">
-              From the team behind Jaap Karo — a thoughtful book exploring what it means to carry dharma in today's world. If our app speaks to your bhakti, this book may speak to your buddhi.
-            </p>
-            <a href="https://amzn.in/d/8KwUFVP" target="_blank" rel="noopener" className="btn-sacred mt-5">
-              View on Amazon →
-            </a>
+        <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-2">
+          <div className="card-sacred grid gap-8 sm:grid-cols-[180px_1fr] sm:items-center">
+            <img
+              src={appIcon}
+              alt="Bhakti with Ekta YouTube channel"
+              className="mx-auto w-40 rounded-lg shadow-xl border border-accent/30 transition-transform duration-300 hover:scale-105"
+            />
+
+            <div className="text-center sm:text-left">
+              <h3 className="font-serif text-2xl text-foreground">Bhakti with Ekta on YouTube</h3>
+              <p className="mt-3 leading-relaxed text-foreground/75">
+                Guided chants, mantra sessions, and devotional reflections to accompany your daily jaap and spiritual practice.
+              </p>
+              <a href="https://www.youtube.com/@bhaktiwithekta" target="_blank" rel="noopener" className="btn-sacred mt-5">
+                Watch on YouTube →
+              </a>
+            </div>
+          </div>
+
+          <div className="card-sacred grid gap-8 sm:grid-cols-[180px_1fr] sm:items-center">
+            <img
+              src={bookCover}
+              alt="The Weight of Dharma book cover"
+              className="mx-auto w-40 rounded-lg shadow-xl border border-accent/30 transition-transform duration-300 hover:scale-105"
+            />
+
+            <div className="text-center sm:text-left">
+              <h3 className="font-serif text-2xl text-foreground">A reflective journey through duty, devotion and the modern Hindu life.</h3>
+              <p className="mt-3 leading-relaxed text-foreground/75">
+                From the team behind Jaap Karo — a thoughtful book exploring what it means to carry dharma in today's world. If our app speaks to your bhakti, this book may speak to your buddhi.
+              </p>
+              <a href="https://amzn.in/d/8KwUFVP" target="_blank" rel="noopener" className="btn-sacred mt-5">
+                View on Amazon →
+              </a>
+            </div>
           </div>
         </div>
       </Section>
