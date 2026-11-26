@@ -731,7 +731,9 @@ const Index = () => {
 				<span>·</span>
 				
 				<a href="https://instagram.com/bhaktiwithekta" target="_blank" rel="noopener noreferrer" className="text-sm underline text-foreground/50 hover:text-accent">Instagram</a>
+                            <span className="text-foreground/30">·</span>
                             <a href="https://www.youtube.com/@dailyjaapkaro" target="_blank" rel="noopener noreferrer" className="text-sm underline text-foreground/50 hover:text-accent">Jaap Karo YouTube</a>
+                            <span className="text-foreground/30">·</span>
                             <a href="https://www.instagram.com/dailyjaapkaro/" target="_blank" rel="noopener noreferrer" className="text-sm underline text-foreground/50 hover:text-accent">Jaap Karo Instagram</a>
 				
 				<span>·</span>
